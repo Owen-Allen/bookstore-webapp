@@ -1,0 +1,101 @@
+Index,Position,isbn,title,author,imprint,publisher,volume,value,price,asp,binding,date,genre
+1,1,9780552149518,"The Da Vinci Code","Brown, Dan",Corgi Books,Transworld Grp,"4,522,025",22857838,8,5,Paperback,1 Mar 2004,"F2.1  Crime, Thriller & Adventure"
+3,2,9780747532743,Harry Potter and the Philosopher's Stone,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"3,844,316",19853187,7,5,Paperback,26 Jun 1997,Y2.1  Children's Fiction
+7,3,9780747538486,Harry Potter and the Chamber of Secrets,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"3,184,492",16224022,7,5,Paperback,1 Apr 1999,Y2.1  Children's Fiction
+6,4,9780552150736,Angels and Demons,"Brown, Dan",Corgi Books,Transworld Grp,"3,096,850",15537325,8,5,Paperback,1 Jul 2003,"F2.1  Crime, Thriller & Adventure"
+2,5,9780747551003,Harry Potter and the Order of the Phoenix,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"3,043,226",33925431,17,11,Hardback,21 Jun 2003,Y2.1  Children's Fiction
+4,6,9780747581086,Harry Potter and the Half-blood Prince:Children's Edition,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"2,947,565",28030020,17,10,Hardback,16 Jul 2005,Y2.1  Children's Fiction
+5,7,9780747591054,Harry Potter and the Deathly Hallows,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"2,842,059",25028396,18,9,Hardback,21 Jul 2007,Y2.1  Children's Fiction
+8,8,9780747546290,Harry Potter and the Prisoner of Azkaban,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"2,776,314",14140491,7,5,Paperback,1 Apr 2000,Y2.1  Children's Fiction
+15,9,9781904233657,Twilight,"Meyer, Stephenie",ATOM,"Little, Brown Book Grp","2,105,862",10148763,8,5,Paperback,22 Mar 2007,Y2.2  Young Adult Fiction
+9,10,9780747550990,Harry Potter and the Goblet of Fire,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"2,057,397",10745712,9,5,Paperback,6 Jul 2001,Y2.1  Children's Fiction
+10,11,9780552151764,Deception Point,"Brown, Dan",Corgi Books,Transworld Grp,"2,018,264",10047196,8,5,Paperback,1 May 2004,"F2.1  Crime, Thriller & Adventure"
+14,12,9781904233886,New Moon,"Meyer, Stephenie",ATOM,"Little, Brown Book Grp","1,975,659",9425641,8,5,Paperback,6 Sep 2007,Y2.2  Young Adult Fiction
+667,13,9780330457729,"The Lovely Bones","Sebold, Alice",Picador,Pan Macmillan Grp,"1,942,042",11561202,8,5,Paperback,4 Dec 2009,F1.1  General & Literary Fiction
+11,14,9780552151696,Digital Fortress,"Brown, Dan",Corgi Books,Transworld Grp,"1,911,943",9642124,8,5,Paperback,5 Mar 2004,"F2.1  Crime, Thriller & Adventure"
+16,15,9780099450252,"The Curious Incident of the Dog in the Night-time","Haddon, Mark",Vintage,Random House Grp,"1,868,969",10196570,8,5,Paperback,1 Apr 2004,F1.1  General & Literary Fiction
+12,16,9781904233916,Eclipse,"Meyer, Stephenie",ATOM,"Little, Brown Book Grp","1,846,171",8981704,8,5,Paperback,3 Jul 2008,Y2.2  Young Adult Fiction
+24,17,9781847245458,"The Girl with the Dragon Tattoo:Millennium Trilogy","Larsson, Stieg",Quercus,Quercus Grp,"1,697,425",9205554,8,6,Paperback,24 Jul 2008,"F2.1  Crime, Thriller & Adventure"
+26,18,9780747566533,"The Kite Runner","Hosseini, Khaled",Bloomsbury Publishing PLC,Bloomsbury Grp,"1,551,953",9317050,8,6,Paperback,7 Jun 2004,F1.1  General & Literary Fiction
+17,19,9780099464464,"The Time Traveler's Wife","Niffenegger, Audrey",Vintage,Random House Grp,"1,496,081",8227128,8,5,Paperback,29 May 2004,F1.1  General & Literary Fiction
+18,20,9780141017891,"The World According to Clarkson","Clarkson, Jeremy",Penguin Books,Penguin Grp,"1,447,188",7503191,8,5,Paperback,26 May 2005,T13.0  Humour: Collections & General
+60,21,9780099429791,Atonement,"McEwan, Ian",Vintage,Random House Grp,"1,396,366",8671447,8,7,Paperback,2 May 2002,F1.1  General & Literary Fiction
+19,22,9780593054277,"The Lost Symbol","Brown, Dan",Bantam Press,Transworld Grp,"1,370,347",13052346,19,10,Hardback,15 Sep 2009,"F2.1  Crime, Thriller & Adventure"
+20,23,9780552997041,"Short History of Nearly Everything,A","Bryson, Bill",Black Swan,Transworld Grp,"1,334,635",9911709,10,7,Paperback,1 Jun 2004,T8.0  Popular Science
+21,24,9781905654284,Breaking Dawn,"Meyer, Stephenie",ATOM,"Little, Brown Book Grp","1,315,685",12034126,15,9,Hardback,4 Aug 2008,Y2.2  Young Adult Fiction
+22,25,9780747546245,Harry Potter and the Goblet of Fire,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"1,297,411",14875831,18,11,Hardback,8 Jul 2000,Y2.1  Children's Fiction
+23,26,9780747591061,Harry Potter and the Deathly Hallows,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"1,283,638",12081283,18,9,Hardback,21 Jul 2007,F2.2  Science Fiction & Fantasy
+"1,400",27,9781849163422,"The Girl Who Played With Fire:Millennium Trilogy","Larsson, Stieg",Quercus Publishing Plc,Quercus Grp,"1,265,474",6706615,8,5,Paperback,29 Jul 2010,"F2.1  Crime, Thriller & Adventure"
+27,28,9780752837505,"Child Called It,A","Pelzer, Dave",Orion (an Imprint of The Orion,Orion Grp,"1,116,042",5566648,7,5,Paperback,4 Jan 2001,T4.0A  Autobiography: General
+28,29,9780349116754,"The No.1 Ladies' Detective Agency:No.1 Ladies' Detective Agency S.","McCall Smith, Alexander",Abacus,"Little, Brown Book Grp","1,106,219",6322496,8,6,Paperback,5 Jun 2003,"F2.1  Crime, Thriller & Adventure"
+29,30,9780718147655,You are What You Eat:The Plan That Will Change Your Life,"McKeith, Gillian",Michael Joseph,Penguin Grp,"1,103,619",11766885,15,11,Paperback,17 Jun 2004,T9.4  Fitness & Diet
+30,31,9780006512134,Man and Boy,"Parsons, Tony",HarperCollins Publishers,HarperCollins Grp,"1,100,447",6857434,8,6,Paperback,6 Mar 2000,F1.1  General & Literary Fiction
+32,32,9780099387916,Birdsong,"Faulks, Sebastian",Vintage,Random House Grp,"1,078,571",7207434,8,7,Paperback,18 Jul 1994,F1.1  General & Literary Fiction
+33,33,9780752877327,Labyrinth,"Mosse, Kate",Orion (an Imprint of The Orion,Orion Grp,"1,065,008",5860821,8,6,Paperback,11 Jan 2006,F1.1  General & Literary Fiction
+34,34,9780755309511,"The Island","Hislop, Victoria",Headline Review,Headline Grp,"1,056,432",5680550,8,5,Paperback,10 Apr 2006,F1.1  General & Literary Fiction
+35,35,9781841953922,Life of Pi,"Martel, Yann",Canongate Books,Canongate Grp,"1,050,090",6967371,8,7,Paperback,17 May 2003,F1.1  General & Literary Fiction
+36,36,9780091889487,"Dr. Atkins' New Diet Revolution:The No-hunger, Luxurious Weight Loss P","Atkins, Robert C.",Vermilion,Random House Grp,"1,046,531",7274727,9,7,Paperback,2 Jan 2003,T9.4  Fitness & Diet
+37,37,9780747599876,"The Tales of Beedle the Bard","Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"1,039,823",4185291,7,4,Hardback,4 Dec 2008,Y2.1  Children's Fiction
+38,38,9780749397548,Captain Corelli's Mandolin,"De Bernieres, Louis",Minerva,Random House Grp,"1,025,664",7026298,8,7,Paperback,1 Jun 1995,F1.1  General & Literary Fiction
+39,39,9780563384304,Delia's How to Cook:(Bk.1) ,"Smith, Delia",BBC Books (Random House),Random House Grp,"1,014,854",11420572,20,11,Hardback,12 Oct 1998,T16.0  Food & Drink: General
+"4,281",40,9780330507417,"The Gruffalo","Donaldson, Julia",Macmillan Children's Books,Pan Macmillan Grp,"1,007,208",4770357,6,4,Paperback,6 Mar 2009,Y1.3  Picture Books
+40,41,9781861976123,"Eats, Shoots and Leaves:The Zero Tolerance Approach to Punctuation","Truss, Lynne",Profile Books,Profile Books Group,"995,455",8858171,10,9,Hardback,6 Nov 2003,T2.1  Usage & Writing Guides
+42,42,9780590660549,Northern Lights:His Dark Materials S.,"Pullman, Philip",Point,Scholastic Ltd. Grp,"976,435",5610127,7,6,Paperback,23 Oct 1998,Y2.2  Young Adult Fiction
+44,43,9780755331420,"The Interpretation of Murder","Rubenfeld, Jed",Headline Review,Headline Grp,"950,686",5425926,8,6,Paperback,15 Jan 2007,"F2.1  Crime, Thriller & Adventure"
+45,44,9781849162746,"The Girl Who Kicked the Hornets' Nest:Millennium Trilogy","Larsson, Stieg",Quercus Publishing Plc,Quercus Grp,"942,103",4841500,8,5,Paperback,1 Apr 2010,"F2.1  Crime, Thriller & Adventure"
+47,45,9780330367356,Bridget Jones: The Edge of Reason,"Fielding, Helen",Picador,Pan Macmillan Grp,"923,429",5495835,8,6,Paperback,15 Jun 2000,F1.1  General & Literary Fiction
+48,46,9780141020525,"Short History of Tractors in Ukrainian,A","Lewycka, Marina",Penguin Books,Penguin Grp,"904,498",5710251,8,6,Paperback,2 Mar 2006,F1.1  General & Literary Fiction
+49,47,9780722532935,"The Alchemist:A Fable About Following Your Dream","Coelho, Paulo",Thorsons,HarperCollins Grp,"903,395",6370730,8,7,Paperback,6 Sep 1999,F1.1  General & Literary Fiction
+50,48,9780552996006,Notes from a Small Island,"Bryson, Bill",Black Swan,Transworld Grp,"898,388",6390460,9,7,Paperback,1 Aug 1996,T8.5  Travel Writing
+623,49,9780099487821,"The Boy in the Striped Pyjamas","Boyne, John",Definitions,Transworld Grp,"885,450",4557736,7,6,Paperback,1 Feb 2007,Y2.2  Young Adult Fiction
+51,50,9780141011905,Stupid White Men:...and Other Sorry Excuses for the State of the Natio,"Moore, Michael",Penguin Books,Penguin Grp,"877,777",6162997,8,7,Paperback,3 Oct 2002,T7.5  Current Affairs & Issues
+52,51,9780718154776,Jamie's 30-minute Meals,"Oliver, Jamie",Michael Joseph,Penguin Grp,"874,546",11297761,26,13,Hardback,30 Sep 2010,T16.0  Food & Drink: General
+53,52,9780099457169,"The Broker","Grisham, John",Arrow Books,Random House Grp,"869,077",4216938,8,5,Paperback,27 Aug 2005,"F2.1  Crime, Thriller & Adventure"
+54,53,9780330332774,Bridget Jones's Diary:A Novel,"Fielding, Helen",Picador,Pan Macmillan Grp,"858,390",5310482,8,6,Paperback,20 Jun 1997,F1.1  General & Literary Fiction
+55,54,9780241003008,"The Very Hungry Caterpillar:The Very Hungry Caterpillar","Carle, Eric",Puffin Books,Penguin Grp,"855,920",4101816,6,5,Hardback,29 Sep 1994,Y1.1  Pre-school & Early Learning
+56,55,9780747582977,"Thousand Splendid Suns,A","Hosseini, Khaled",Bloomsbury Publishing PLC,Bloomsbury Grp,"855,523",8146524,12,10,Paperback,22 May 2007,F1.1  General & Literary Fiction
+57,56,9781846051616,"The Sound of Laughter","Kay, Peter",Century,Random House Grp,"853,499",9308356,19,11,Hardback,5 Oct 2006,T4.0A  Autobiography: General
+58,57,9780718147709,Jamie's Italy,"Oliver, Jamie",Michael Joseph,Penguin Grp,"833,060",9379861,25,11,Hardback,3 Oct 2005,T16.1  National & Regional Cuisine
+77,58,9780755307500,Small Island,"Levy, Andrea",Headline Review,Headline Grp,"831,039",5066748,8,6,Paperback,13 Sep 2004,F1.1  General & Literary Fiction
+59,59,9780141030142,"The Memory Keeper's Daughter","Edwards, Kim",Penguin Books,Penguin Grp,"820,877",4531504,8,6,Paperback,26 Apr 2007,F1.1  General & Literary Fiction
+61,60,9780007110926,Billy Connolly,"Stephenson, Pamela",HarperCollins Publishers,HarperCollins Grp,"801,133",4350571,9,5,Paperback,8 Jul 2002,T4.1  Biography: The Arts
+62,61,9780330448444,"The House at Riverton","Morton, Kate",Pan Books,Pan Macmillan Grp,"793,338",4268735,8,5,Paperback,15 Jun 2007,F1.1  General & Literary Fiction
+96,62,9780747561071,Harry Potter and the Order of the Phoenix,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"788,619",4488325,8,6,Paperback,10 Jul 2004,Y2.1  Children's Fiction
+63,63,9780701181840,Nigella Express,"Lawson, Nigella",Chatto & Windus,Random House Grp,"780,665",11089669,25,14,Hardback,6 Sep 2007,T16.0  Food & Drink: General
+64,64,9780099771517,Memoirs of a Geisha,"Golden, Arthur",Vintage,Random House Grp,"766,706",5143234,8,7,Paperback,4 Jun 1998,F1.1  General & Literary Fiction
+65,65,9780563384311,Delia's How to Cook:(Bk.2) ,"Smith, Delia",BBC Books (Random House),Random House Grp,"765,246",8788134,20,11,Hardback,9 Dec 1999,T16.0  Food & Drink: General
+66,66,9780590112895,"The Subtle Knife:His Dark Materials S.","Pullman, Philip",Point,Scholastic Ltd. Grp,"762,717",4335233,7,6,Paperback,16 Oct 1998,Y2.2  Young Adult Fiction
+67,67,9780718148621,Jamie's Ministry of Food:Anyone Can Learn to Cook in 24 Hours,"Oliver, Jamie",Michael Joseph,Penguin Grp,"759,900",9602472,25,13,Hardback,3 Oct 2008,T16.0  Food & Drink: General
+68,68,9781904994367,Guinness World Records 2009:2009,,Guinness World Records,Guinness Publisher Group,"747,715",7369688,20,10,Hardback,17 Sep 2008,T2.0  Encyclopedias & General Reference
+69,69,9781861978769,Why Don't Penguins' Feet Freeze?:And 114 Other Questions,,Profile Books,Profile Books Group,"746,917",3792483,8,5,Paperback,5 Oct 2006,T8.0  Popular Science
+70,70,9780718152437,Jamie at Home:Cook Your Way to the Good Life,"Oliver, Jamie",Michael Joseph,Penguin Grp,"741,643",10695849,30,14,Hardback,6 Sep 2007,T16.0  Food & Drink: General
+71,71,9780140276336,White Teeth,"Smith, Zadie",Penguin Books,Penguin Grp,"731,416",4601032,9,6,Paperback,25 Jan 2001,F1.1  General & Literary Fiction
+72,72,9780007156108,"The Devil Wears Prada","Weisberger, Lauren",HarperCollins Publishers,HarperCollins Grp,"725,210",4077327,8,6,Paperback,6 Oct 2003,F1.1  General & Literary Fiction
+73,73,9780593059258,At My Mother's Knee ...:and Other Low Joints,"O'Grady, Paul",Bantam Press,Transworld Grp,"723,164",7115649,19,10,Hardback,24 Sep 2008,T4.1A  Autobiography:  The Arts
+74,74,9780752893686,No Time for Goodbye,"Barclay, Linwood",Orion (an Imprint of The Orion,Orion Grp,"722,103",3833776,8,5,Paperback,12 Jun 2008,"F2.1  Crime, Thriller & Adventure"
+75,75,9780007207329,New York Post Sudoku 3: The Official Utterly Addictive Number-Placing Puzzle,,Times Books,HarperCollins Grp,"719,307",3532794,6,5,Paperback,7 Mar 2005,T13.4  Puzzles
+76,76,9780552998482,Chocolat,"Harris, Joanne",Black Swan,Transworld Grp,"713,299",4526189,8,6,Paperback,2 Mar 2000,F1.1  General & Literary Fiction
+78,77,9780718144395,"The Return of the Naked Chef","Oliver, Jamie",Michael Joseph,Penguin Grp,"707,570",11156890,20,16,Hardback,30 Mar 2000,T16.0  Food & Drink: General
+80,78,9780006498407,Angela's Ashes:A Memoir of a Childhood,"McCourt, Frank",Flamingo,HarperCollins Grp,"694,831",5231220,8,8,Paperback,6 May 1997,T4.0A  Autobiography: General
+81,79,9780747563204,Schott's Original Miscellany,"Schott, Ben",Bloomsbury Publishing PLC,Bloomsbury Grp,"694,063",6483194,13,9,Hardback,4 Nov 2002,T13.3  Trivia & Quiz Books
+82,80,9781847670946,Dreams from My Father:A Story of Race and Inheritance,"Obama, Barack",Canongate Books,Canongate Grp,"690,765",4575110,9,7,Paperback,5 Jun 2008,"T4.2A  Autobiography: Historical, Political & Military"
+83,81,9780007232741,"The Dangerous Book for Boys","Iggulden, Conn & Iggulden, Hal",HarperCollins Publishers,HarperCollins Grp,"688,808",8765299,20,13,Hardback,5 Jun 2006,"T11.5  Hobbies, Pastimes & Indoor Games"
+123,82,9780099419785,To Kill a Mockingbird,"Lee, Harper",Arrow Books,Random House Grp,"682,102",3637437,7,5,Paperback,5 Oct 1989,F1.1  General & Literary Fiction
+84,83,9780747581109,Harry Potter and the Half-blood Prince,"Rowling, J. K.",Bloomsbury Publishing PLC,Bloomsbury Grp,"680,886",6506996,17,10,Hardback,16 Jul 2005,F2.2  Science Fiction & Fantasy
+85,84,9780099406136,"The Summons","Grisham, John",Arrow Books,Random House Grp,"677,378",3706035,8,5,Paperback,28 Sep 2002,"F2.1  Crime, Thriller & Adventure"
+86,85,9780552149525,"The Lost Symbol","Brown, Dan",Corgi Books,Transworld Grp,"672,950",2854412,8,4,Paperback,22 Jul 2010,"F2.1  Crime, Thriller & Adventure"
+87,86,9780140237504,"The Catcher in the Rye","Salinger, J.D.",Penguin Books,Penguin Grp,"668,497",4474363,9,7,Paperback,4 Aug 1994,F1.1  General & Literary Fiction
+88,87,9780593050545,I Can Make You Thin,"McKenna, Paul",Bantam Press,Transworld Grp,"665,923",5131848,11,8,Paperback,17 Jan 2005,T9.4  Fitness & Diet
+89,88,9780718144845,Happy Days with the Naked Chef,"Oliver, Jamie",Michael Joseph,Penguin Grp,"659,722",8969623,20,14,Hardback,3 Sep 2001,T16.0  Food & Drink: General
+90,89,9780552771153,Brick Lane,"Ali, Monica",Black Swan,Transworld Grp,"659,023",4182106,8,6,Paperback,1 May 2004,F1.1  General & Literary Fiction
+91,90,9780141019376,Anybody Out There?,"Keyes, Marian",Penguin Books,Penguin Grp,"658,713",3401796,8,5,Paperback,8 Feb 2007,F1.1  General & Literary Fiction
+92,91,9780552772747,"The Undomestic Goddess","Kinsella, Sophie",Black Swan,Transworld Grp,"658,598",3277738,8,5,Paperback,2 Jan 2006,F1.1  General & Literary Fiction
+116,92,9780552773898,"The Book Thief","Zusak, Markus",Black Swan,Transworld Grp,"658,524",3699538,8,5,Paperback,1 Jan 2008,F1.1  General & Literary Fiction
+93,93,9780141022925,I Know You Got Soul,"Clarkson, Jeremy",Penguin Books,Penguin Grp,"658,274",3586066,8,5,Paperback,25 May 2006,T12.0  Transport: General
+94,94,9780316731317,Sharon Osbourne Extreme:My Autobiography,"Osbourne, Sharon",Time Warner Books,"Little, Brown Book Grp","656,431",7086434,19,11,Hardback,3 Oct 2005,T4.1A  Autobiography:  The Arts
+95,95,9781904994497,Guinness World Records 2010,,Guinness World Records,Guinness Publisher Group,"656,326",6181945,20,9,Hardback,17 Sep 2009,T2.0  Encyclopedias & General Reference
+97,96,9780439993586,"The Amber Spyglass:His Dark Materials S.","Pullman, Philip",Point,Scholastic Ltd. Grp,"653,615",3797460,7,6,Paperback,14 Sep 2001,Y2.2  Young Adult Fiction
+98,97,9780552771108,Can You Keep a Secret?,"Kinsella, Sophie",Black Swan,Transworld Grp,"652,788",3722312,8,6,Paperback,17 Mar 2003,F1.1  General & Literary Fiction
+99,98,9780552997034,Down Under,"Bryson, Bill",Black Swan,Transworld Grp,"646,515",4628014,9,7,Paperback,6 Aug 2001,T8.5  Travel Writing
+100,99,9780099506928,"Spot of Bother,A","Haddon, Mark",Vintage,Random House Grp,"645,453",3949460,8,6,Paperback,7 Jun 2007,F1.1  General & Literary Fiction
+101,100,9781846053443,Dear Fatty,"French, Dawn",Century,Random House Grp,"643,636",6330573,19,10,Hardback,9 Oct 2008,T4.1A  Autobiography:  The Arts

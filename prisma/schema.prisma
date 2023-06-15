@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model author {
+  author_id String  @id @db.VarChar(36)
+  name      String? @db.VarChar(100)
+  wrote     wrote[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model book {
+  isbn         String         @id @db.VarChar(17)
+  title        String?        @db.VarChar(100)
+  genre        String?        @db.VarChar(100)
+  price        Decimal?       @db.Decimal(10, 2)
+  stock        Int?
+  num_pages    Int?
+  pub_cut      Decimal?       @db.Decimal(4, 2)
+  order_object order_object[]
+  published    published[]
+  wrote        wrote[]
+}
+
+model order_object {
+  order_id   String     @db.VarChar(10)
+  isbn       String     @db.VarChar(17)
+  quantity   Int?       @default(0)
+  book       book       @relation(fields: [isbn], references: [isbn], onDelete: Cascade, onUpdate: NoAction)
+  user_order user_order @relation(fields: [order_id], references: [order_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([order_id, isbn])
+}
+
+model published {
+  isbn         String    @db.VarChar(17)
+  publisher_id String    @db.VarChar(36)
+  book         book      @relation(fields: [isbn], references: [isbn], onDelete: Cascade, onUpdate: NoAction)
+  publisher    publisher @relation(fields: [publisher_id], references: [publisher_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([isbn, publisher_id])
+}
+
+model publisher {
+  publisher_id String      @id @db.VarChar(36)
+  name         String?     @db.VarChar(100)
+  bank_account Decimal?    @default(0) @db.Decimal(15, 2)
+  published    published[]
+}
+
+model user_account {
+  user_id               String       @id @db.VarChar(10)
+  name                  String?      @db.VarChar(100)
+  isadmin               Boolean?     @default(false)
+  shipping_house_number String?      @db.VarChar(8)
+  shipping_street       String?      @db.VarChar(50)
+  shipping_city         String?      @db.VarChar(50)
+  shipping_province     String?      @db.VarChar(50)
+  shipping_postal_code  String?      @db.VarChar(6)
+  billing_house_number  String?      @db.VarChar(8)
+  billing_street        String?      @db.VarChar(50)
+  billing_city          String?      @db.VarChar(50)
+  billing_province      String?      @db.VarChar(50)
+  billing_postal_code   String?      @db.VarChar(6)
+  user_order            user_order[]
+}
+
+model user_order {
+  user_id               String         @db.VarChar(10)
+  order_id              String         @id @db.VarChar(10)
+  order_date            DateTime?      @db.Date
+  order_house_number    String?        @db.VarChar(8)
+  order_street          String?        @db.VarChar(50)
+  order_city            String?        @db.VarChar(50)
+  order_province        String?        @db.VarChar(50)
+  order_postal_code     String?        @db.VarChar(6)
+  billing_house_number  String?        @db.VarChar(8)
+  billing_street        String?        @db.VarChar(50)
+  billing_city          String?        @db.VarChar(50)
+  billing_province      String?        @db.VarChar(50)
+  billing_postal_code   String?        @db.VarChar(6)
+  shipping_house_number String?        @db.VarChar(8)
+  shipping_street       String?        @db.VarChar(50)
+  shipping_city         String?        @db.VarChar(50)
+  shipping_province     String?        @db.VarChar(50)
+  shipping_postal_code  String?        @db.VarChar(6)
+  order_object          order_object[]
+  user_account          user_account   @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model wrote {
+  isbn      String @db.VarChar(17)
+  author_id String @db.VarChar(36)
+  author    author @relation(fields: [author_id], references: [author_id], onDelete: Cascade, onUpdate: NoAction)
+  book      book   @relation(fields: [isbn], references: [isbn], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([isbn, author_id])
+}

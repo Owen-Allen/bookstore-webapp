@@ -1,0 +1,14 @@
+insert into publisher values('4ef3e02f-4b56-4790-bd24-2efb96ddb9d6','Transworld Grp');
+insert into publisher values('a1093166-21f3-4095-abc3-bb976d6f63d5','Bloomsbury Grp');
+insert into publisher values('8d7e752b-09a8-4fd6-90e6-4f61703f227e','Little, Brown Book Grp');
+insert into publisher values('bece1d13-d040-4df9-8575-6de53e39461b','Pan Macmillan Grp');
+insert into publisher values('404fb9c8-392d-4ba4-8549-93eb4ba73ca7','Random House Grp');
+insert into publisher values('8dfd8d00-6e94-47b8-ab8e-e3cfe4603390','Quercus Grp');
+insert into publisher values('79f88485-392d-4318-bb22-ef7fbb9a0320','Penguin Grp');
+insert into publisher values('aeb9b132-8c7d-4112-b45b-483b8e26f05a','Orion Grp');
+insert into publisher values('2fa7de44-99bf-4d52-b195-f1758ade1f0c','HarperCollins Grp');
+insert into publisher values('97e3e4e4-1791-4fb6-9742-be6c13f3273d','Headline Grp');
+insert into publisher values('8f60464a-ff3c-414c-bb7f-98e88128d5db','Canongate Grp');
+insert into publisher values('8279a08b-de7c-41bc-8e2b-482714de2f3a','Profile Books Group');
+insert into publisher values('9fd50248-9b9f-4fd9-be42-2f554c61fa5b','Scholastic Ltd. Grp');
+insert into publisher values('0df2fe52-5e04-49ed-8389-c4dcc1898f8f','Guinness Publisher Group');
