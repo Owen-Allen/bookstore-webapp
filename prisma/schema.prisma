@@ -17,6 +17,7 @@ model author {
 model book {
   isbn         String         @id @db.VarChar(17)
   title        String?        @db.VarChar(100)
+  author       String?        @db.VarChar(100)
   genre        String?        @db.VarChar(100)
   price        Decimal?       @db.Decimal(10, 2)
   stock        Int?

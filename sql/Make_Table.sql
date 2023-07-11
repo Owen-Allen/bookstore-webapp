@@ -21,6 +21,7 @@ drop table if exists user_account;
 create table book
 	(isbn		varchar(17) UNIQUE NOT NULL, 
 	 title		varchar(100), 
+	 author     varChar(100),
 	 genre		varchar(100),
      price      decimal(10,2),
      stock      integer check (stock >= 0),
