@@ -1,58 +1,165 @@
-import React from 'react'
+import React, { useEffect, useState }from 'react'
 
 import { Inter } from 'next/font/google'
-
 const inter = Inter({ subsets: ['latin'] })
-export default function Browse(){
-    return(
-        <main
+
+import Card from '@/components/Card'
+import SortSelector from '@/components/SortSelector'
+
+export interface Book {
+  title: string,
+  isbn: string,
+  author: string,
+  genre: string,
+  price: number,
+  stock: number,
+  pub_cut: number
+}
+
+export default function Browse() {
+  const [allBooks, setAllBooks] = useState<Book[]>([])
+  const [displayBooks, setDisplayBooks] = useState<Book[]>([])
+  const [allGenres, setAllGenres] = useState(["All"])
+
+  const [sortBy, setSortBy] = useState("title")
+  const [page, setPage] = useState(1)
+
+  const [searchFilter, setSearchFilter] = useState("")
+  const [genreFilter, setGenresFilter] = useState("All")
+  const [minPrice, setMinPrice] = useState(0)
+  const [maxPrice, setMaxPrice] = useState(1000)
+
+  async function getAllBooks() {
+    console.log("getAllBooks")
+    const response = await fetch('/api/books')
+    setAllBooks(await response.json())
+    console.log(allBooks[0])
+  }
+
+  async function getAllGenres() {
+    console.log("getAllGenres")
+    const response = await fetch('/api/genres')
+    setAllGenres((await response.json()).sort())
+  }
+
+  useEffect(() => {
+    getAllBooks()
+    getAllGenres()
+  }, [])
+
+  function filterParameters() {
+    let books = allBooks
+    console.log(books)
+    if (searchFilter) {
+      books = books.filter(
+        book => book.title.toLowerCase().includes(searchFilter.toLowerCase()) || book.author.toLowerCase().includes(searchFilter.toLowerCase()))
+    }
+    if (genreFilter !== "All") {
+      books = books.filter(book => book.genre == genreFilter)
+    }
+    if (minPrice) {
+      books = books.filter(book => book.price >= minPrice)
+    }
+    if (maxPrice) {
+      books = books.filter(book => book.price <= maxPrice)
+    }
+    setDisplayBooks(books)
+  }
+
+  useEffect(() => {
+    filterParameters()
+  }, [minPrice, maxPrice, searchFilter, genreFilter, allBooks])
+
+  return (
+    <div className="min-h-screen h-screen overflow-auto bg-yellow-50">
+      <main
         //bg-gradient-to-r from-indigo-100 from-0% via-white via-50% to-indigo-100 to-100%
-          className={`flex bg-gray-100 min-h-screen flex-col ${inter.className}`}
-        >
-          <div className="p-8">
-          <div className="text-black text-5xl p-8 font-mono -mt-8"> 
+        className={`flex bg-yellow-50 flex-col ${inter.className}`}>
+        <div className="p-16  ">
+          <div className="text-lime-900 text-6xl p-8 font-mono -mt-8">
             Browse
           </div>
 
-          <div className="flex pl-8 pr-8">
-              <div id="sidebar" className="bg-red-500 w-1/4 h-screen">
-
-              </div>
-              <div id="content" className="bg-blue-500 w-3/4 h-screen">
-                <div className="flex justify-center">
-                  <div id="filters" className=" w-48 h-16 bg-green-500">
-                  {/* Sort Filters */}
+          <div className="flex">
+            <aside id="sidebar" className="mt-8 overflow-hidden sticky top-0 flex h-min pb-4 justify-center rounded bg-orange-300 sm:border md:border lg:border border-lime-900 w-0 sm:w-96 md:w-96 lg:w-96">
+              <div className="flex p-8 flex-col w-5/8">
+                <form className="w-full max-w-lg">
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full px-3">
+                      <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="booksearch">
+                        Find a Book
+                      </label>
+                      <input onChange={e => setSearchFilter(e.target.value)} className="text-lime-800 appearance-none bg-yellow-50 block w-full lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="bookquery" type="booksearch" />
+                    </div>
                   </div>
-                  <div>
-                  {/* Book Icons */}
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                      <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="minprice">
+                        Min Price
+                      </label>
+                      <input onChange={e => setMinPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="minprice" />
+                    </div>
+                    <div className="w-full md:w-1/2 px-3">
+                      <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="maxprice">
+                        Max Price
+                      </label>
+                      <input onChange={(e) => setMaxPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="maxprice" />
+                    </div>
+                  </div>
+
+                  <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="genre"> Select a genre </label>
+                  <select onChange={e => { setGenresFilter(e.target.value) }} id="genre" className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none">
+                    <option key="All" value="All">All</option>
+                    {
+                      allGenres.map((genre) => <option key={genre} value={genre}>{genre}</option>)
+                    }
+                  </select>
+                </form>
+              </div>
+            </aside>
+
+            {/* BOOK ROWS */}
+            <div id="content" className="w-full h-screen ">
+              <div className="flex justify-center">  {/* Align center */}
+                <div className="flex w-full flex-col">  {/* Align vertically */}
+                  <div className="flex w-full justify-center sm:justify-end md:justify-end lg:justify-end">
+                    <SortSelector onSelectChange={setSortBy} />
+                  </div>
+                  <div className="bg-yellow-50 flex flex-wrap w-full justify-start "> {/* removed justify-around*/}
+                    {/* Book Icons */}
+                    {!displayBooks.length ?
+                      "" :
+                      displayBooks.sort((book1: Book, book2: Book) => {
+                        if (sortBy === "title") {
+                          if (book1.title > book2.title) {
+                            return 1
+                          } else {
+                            return -1
+                          }
+                        } else if (sortBy === "author") {
+                          if (book1.author > book2.author) {
+                            return 1
+                          } else {
+                            return -1
+                          }
+                        } else if (sortBy === "low-high") {
+                          return book1.price - book2.price
+                        } else if (sortBy === "high-low") {
+                          return book2.price - book1.price
+                        }
+                        return 1
+                      }
+                      ).slice((page - 1) * 28, page * 28).map((book) => <Card key={`card_${book.isbn}`} book={book}></Card>)}
                   </div>
                 </div>
-
               </div>
-          </div>
+            </div>
 
           </div>
-
-
-        </main>
-    );
+        </div>
+      </main>
+    </div>
+  );
 }
 
-{/* <div className="container mx-auto">
- <div className="flex flex-row flex-wrap py-4">
-<aside className="w-full sm:w-1/3 md:w-1/4 px-2">
-    <div className="sticky top-0 p-4 w-full">
-        <!-- navigation -->
-        <ul className="flex flex-col overflow-hidden">
-            ...
-        </ul>
-    </div>
-</aside>
-<main role="main" className="w-full sm:w-2/3 md:w-3/4 pt-1 px-2">
-    <!-- content area -->
-</main>
-</div>
-</div>
-<footer className="mt-auto">
-...
-</footer> */}
+
