@@ -3,10 +3,9 @@ import Nav from "../components/Nav"
 
 export default function Document() {
   return (
-    <Html lang="en">
-      <Head/>
+    <Html lang="en" className='bg-orange-300'>
+      <Head />
       <title>Bookstore</title>
-      <Nav/>
       <body>
         <Main />
         <NextScript />
