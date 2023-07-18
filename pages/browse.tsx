@@ -30,14 +30,11 @@ export default function Browse() {
   const [maxPrice, setMaxPrice] = useState(1000)
 
   async function getAllBooks() {
-    console.log("getAllBooks")
     const response = await fetch('/api/books')
     setAllBooks(await response.json())
-    console.log(allBooks[0])
   }
 
   async function getAllGenres() {
-    console.log("getAllGenres")
     const response = await fetch('/api/genres')
     setAllGenres((await response.json()).sort())
   }
@@ -49,7 +46,6 @@ export default function Browse() {
 
   function filterParameters() {
     let books = allBooks
-    console.log(books)
     if (searchFilter) {
       books = books.filter(
         book => book.title.toLowerCase().includes(searchFilter.toLowerCase()) || book.author.toLowerCase().includes(searchFilter.toLowerCase()))
@@ -74,14 +70,16 @@ export default function Browse() {
     <div className="min-h-screen h-screen overflow-auto bg-yellow-50">
       <main
         //bg-gradient-to-r from-indigo-100 from-0% via-white via-50% to-indigo-100 to-100%
-        className={`flex bg-yellow-50 flex-col ${inter.className}`}>
-        <div className="p-16  ">
-          <div className="text-lime-900 text-6xl p-8 font-mono -mt-8">
-            Browse
+        className={`flex p-16 bg-yellow-50 flex-col ${inter.className}`}>
+
+          <div className="flex justify-center sm:flex-none sm:justify-start">
+            <h1 className="text-lime-900 text-6xl p-8 font-mono -mt-8 mb-2">
+              Browse
+            </h1>
           </div>
 
           <div className="flex">
-            <aside id="sidebar" className="mt-8 overflow-hidden sticky top-0 flex h-min pb-4 justify-center rounded bg-orange-300 sm:border md:border lg:border border-lime-900 w-0 sm:w-96 md:w-96 lg:w-96">
+            <aside id="sidebar" className=" overflow-hidden sticky top-0 flex h-min pb-4 justify-center rounded bg-orange-300 sm:border md:border lg:border border-lime-900 w-0 sm:w-96 md:w-96 lg:w-96">
               <div className="flex p-8 flex-col w-5/8">
                 <form className="w-full max-w-lg">
                   <div className="flex flex-wrap -mx-3 mb-6">
@@ -122,10 +120,10 @@ export default function Browse() {
             <div id="content" className="w-full h-screen ">
               <div className="flex justify-center">  {/* Align center */}
                 <div className="flex w-full flex-col">  {/* Align vertically */}
-                  <div className="flex w-full justify-center sm:justify-end md:justify-end lg:justify-end">
+                  <div className="flex w-full justify-center sm:justify-start sm:pl-8">
                     <SortSelector onSelectChange={setSortBy} />
                   </div>
-                  <div className="bg-yellow-50 flex flex-wrap w-full justify-start "> {/* removed justify-around*/}
+                  <div className="bg-yellow-50 flex flex-wrap"> {/* removed justify-around*/}
                     {/* Book Icons */}
                     {!displayBooks.length ?
                       "" :
@@ -149,14 +147,14 @@ export default function Browse() {
                         }
                         return 1
                       }
-                      ).slice((page - 1) * 28, page * 28).map((book) => <Card key={`card_${book.isbn}`} book={book}></Card>)}
+                      ).slice((page - 1) * 28, page * 28).map((book) => 
+                      <Card key={`card_${book.isbn}`} book={book}></Card>)}
                   </div>
                 </div>
               </div>
             </div>
 
           </div>
-        </div>
       </main>
     </div>
   );
