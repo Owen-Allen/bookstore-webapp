@@ -1,10 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useCartContext } from '@/context/CartContext'
 
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Browse(){
+
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    cartItems,
+} = useCartContext()
+
+  useEffect(() => {
+    console.log("useEffect")
+    console.log(cartItems)
+  }, [cartItems.length])
+
+  
     return(
 
       <div className="flex justify-center">
