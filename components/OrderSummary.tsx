@@ -50,7 +50,8 @@ export default function OrderSummary(props: Props) {
 
     useEffect( () => {
         computeTotals()
-    }, [items, bookData, country])
+    }, [items, bookData, country, computeTotals])
+
     return (
         <div className="flex flex-col bg-gray-50 rounded w-64 mt-5 p-5 mx-5 border border-lime-900">
             <h1 className="text-lime-900 text-2xl"> Order Summary </h1>

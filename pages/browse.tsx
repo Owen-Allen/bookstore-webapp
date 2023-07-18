@@ -64,14 +64,13 @@ export default function Browse() {
 
   useEffect(() => {
     filterParameters()
-  }, [minPrice, maxPrice, searchFilter, genreFilter, allBooks])
+  }, [minPrice, maxPrice, searchFilter, genreFilter, allBooks, filterParameters])
 
   return (
     <div className="min-h-screen h-screen overflow-auto bg-yellow-50">
       <main
         //bg-gradient-to-r from-indigo-100 from-0% via-white via-50% to-indigo-100 to-100%
-        className={`flex p-16 bg-yellow-50 flex-col ${inter.className}`}>
-
+        className={`flex flex-col p-16 bg-yellow-50 ${inter.className}`}>
           <div className="flex justify-center sm:flex-none sm:justify-start">
             <h1 className="text-lime-900 text-6xl p-8 font-mono -mt-8 mb-2">
               Browse
@@ -79,7 +78,7 @@ export default function Browse() {
           </div>
 
           <div className="flex">
-            <aside id="sidebar" className=" overflow-hidden sticky top-0 flex h-min pb-4 justify-center rounded bg-orange-300 sm:border md:border lg:border border-lime-900 w-0 sm:w-96 md:w-96 lg:w-96">
+            <aside id="sidebar" className="shadow-lg overflow-hidden sticky top-0 flex h-min pb-4 justify-center rounded bg-orange-300 sm:border md:border lg:border border-lime-900 w-0 sm:w-96 md:w-96 lg:w-96">
               <div className="flex p-8 flex-col w-5/8">
                 <form className="w-full max-w-lg">
                   <div className="flex flex-wrap -mx-3 mb-6">
@@ -120,7 +119,7 @@ export default function Browse() {
             <div id="content" className="w-full h-screen ">
               <div className="flex justify-center">  {/* Align center */}
                 <div className="flex w-full flex-col">  {/* Align vertically */}
-                  <div className="flex w-full justify-center sm:justify-start sm:pl-8">
+                  <div className="flex w-full justify-center pr-0 sm:pr-4 sm:justify-end sm:pl-8">
                     <SortSelector onSelectChange={setSortBy} />
                   </div>
                   <div className="bg-yellow-50 flex flex-wrap"> {/* removed justify-around*/}

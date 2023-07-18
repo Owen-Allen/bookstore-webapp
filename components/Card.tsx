@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { useCartContext } from '@/context/CartContext'
 import { Book } from '@/pages/browse';
@@ -22,14 +23,14 @@ export default function Card(props: Props) {
     const img_src = "https://pictures.abebooks.com/isbn/" + String(props.book.isbn) + "-us-300.jpg"
     return (
         <div className="flex flex-col w-96 sm:w-48 p-4 mx-8 mt-8 bg-orange-200 shadow-lg rounded">
-            <a href={`/book/${props.book.isbn}`}>
+            <Link href={`/book/${props.book.isbn}`}>
                 <Image
                     width={0}
                     height={0}
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }}
                     src={img_src} alt={"Image of " + props.book.title} />
-            </a>
+            </Link>
             <a className="p-4 sm:pt-4 sm:pl-2" href={`/book/${props.book.isbn}`}>
                 <span className="font-bold text-lime-900"> {props.book.title} </span>
                 <span className="mb-3 block text-gray-500"> {props.book.author} </span>

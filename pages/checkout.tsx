@@ -115,7 +115,7 @@ export default function Checkout() {
 
     useEffect(() => {
         loadBookData() // Should only call loadBookData once cartItems have been fetched
-    }, [isLoading])
+    }, [isLoading, loadBookData])
 
     console.log(shippingInfo)
 

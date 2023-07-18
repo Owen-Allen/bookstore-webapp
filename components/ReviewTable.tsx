@@ -1,6 +1,7 @@
-import { Book } from '@/pages/browse'
 import React from 'react'
+import Link from 'next/link'
 
+import { Book } from '@/pages/browse'
 
 interface Props {
     bookData: Book[],
@@ -32,7 +33,7 @@ export default function ReviewTable(props: Props) {
                 {bookData.map((book) =>
                     <tr key={`${book.isbn}`} className="bg-gray-50">
                         <td className="p-3 text-sm text-lime-900 whitespace-nowrap">
-                            <a href={"/book/" + book.isbn} className="font-semibold text-lime-900 hover:underline"> {book.title}</a>
+                            <Link href={"/book/" + book.isbn} className="font-semibold text-lime-900 hover:underline"> {book.title}</Link>
                         </td>
                         <td className="p-3 text-sm text-lime-900 whitespace-nowrap">
                             {book.author}

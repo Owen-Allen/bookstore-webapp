@@ -1,33 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { useCartContext } from '@/context/CartContext'
 
-import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Browse(){
+export default function about() {
 
-  const {
-    getItemQuantity,
-    increaseCartQuantity,
-    decreaseCartQuantity,
-    cartItems,
-} = useCartContext()
-
-  useEffect(() => {
-    console.log("useEffect")
-    console.log(cartItems)
-  }, [cartItems.length])
-
-  
-    return(
-
-      <div className="flex justify-center">
-        <div className="h-96 relative flex flex-col justify-around">
-          <div>01</div>
-          <div>02</div>
-          <div className="bottom-0 absolute bg-blue-200 w-8 h-8">03</div>
+  return (
+    <div className="min-h-screen h-screen flex w-full bg-yellow-50">
+      <div className="flex justify-center text-lime-900">
+          <a className="pt-32 w-5/6">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</a>
         </div>
-      </div>
-    );
+    </div>
+  );
 }

@@ -2,6 +2,8 @@
 
 import { useCartContext } from '@/context/CartContext'
 
+import Link from 'next/link'
+
 const Nav = () => {
 
   const { cartQuantity } = useCartContext()
@@ -9,9 +11,8 @@ const Nav = () => {
   return (
     <nav
       className="relative flex w-full items-center justify-between bg-orange-300 shadow-md py-2 md:flex-wrap md:justify-start"
-      data-te-navbar-ref
     >
-      <div className="flex w-full flex-wrap items-center justify-between "> {/* removed px-3 */}
+      <div className="flex w-full flex-wrap items-center justify-between ">
         <div className="flex items-center">
           {/*  Hamburger menu button */}
           <button
@@ -47,50 +48,35 @@ const Nav = () => {
         <div
           className="!visible mx-16 hidden grow basis-[100%] items-center lg:!flex lg:basis-auto"
           id="navbarSupportedContentY"
-          data-te-collapse-item
         >
           <ul className="mr-auto flex flex-col lg:flex-row" data-te-navbar-nav-ref>
-            <li>
-
-            </li>
-
-
             <li className="mb-4 lg:mb-0 lg:pr-2">
-              <a
+              <Link
                 className={"block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 [&.active]:text-black/90 "}
                 href="/"
-                data-te-nav-link-ref
-                data-te-ripple-init
-                data-te-ripple-color="light"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="mb-4 lg:mb-0 lg:pr-2">
-              <a
+              <Link
                 className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 [&.active]:text-black/90"
                 href="/browse"
-                data-te-nav-link-ref
-                data-te-ripple-init
-                data-te-ripple-color="light"
               >
                 Browse
-              </a>
+              </Link>
             </li>
             <li className="mb-4 lg:mb-0 lg:pr-2">
-              <a
+              <Link
                 className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 [&.active]:text-black/90"
                 href="/about"
-                data-te-nav-link-ref
-                data-te-ripple-init
-                data-te-ripple-color="light"
               >
                 About
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
-            <a href="/checkout" role="button" className="relative flex">
+            <Link href="/checkout" role="button" className="relative flex">
               <svg className="peer fill-lime-900 hover:fill-black transition duration-250 ease-in-out" fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 width="40px" height="40px" viewBox="0 0 902.86 902.86"
               >
@@ -113,13 +99,12 @@ const Nav = () => {
                   {cartQuantity < 10 ? cartQuantity : "*"}
                 </span>
               }
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </nav>
   );
 }
-
 
 export default Nav;
