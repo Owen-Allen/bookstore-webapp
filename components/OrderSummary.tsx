@@ -12,20 +12,21 @@ interface Props {
     country: string,
     subtotal: number,
     total: number,
+    shippingCost: number,
+    tax: number,
     setSubtotal: Function,
     setTotal: Function,
+    setShippingCost: Function,
+    setTax: Function
 }
 
 const TAXRATE: number = 0.15
 const SHIPPINGLOOKUP = new Map([['Canada', 5], ['United States', 10], ['Mexico', 12]])
 
 export default function OrderSummary(props: Props) {
-    const { items, bookData, country, subtotal, total, setSubtotal, setTotal } = props
-    const [ shipping, setShipping ] = useState(0)
-    const [ tax, setTax ] = useState(0)
+    const { items, bookData, country, subtotal, total, shippingCost, tax, setSubtotal, setTotal, setShippingCost, setTax } = props
 
-    console.log(bookData)
-    console.log(items)
+
     const computeTotals = () => {
         let s = bookData.reduce( (acc,book) => {
             let newAmount = 0
@@ -40,8 +41,8 @@ export default function OrderSummary(props: Props) {
             return acc + newAmount
         }, 0)
         setSubtotal(s)
-        let shippingCost = SHIPPINGLOOKUP.get(country) || -1
-        setShipping(shippingCost)
+        let sCost = SHIPPINGLOOKUP.get(country) || -1
+        setShippingCost(sCost)
         let t = parseFloat((s * TAXRATE).toFixed(2))
         setTax(t)
         setTotal(s + shippingCost + t)
@@ -59,7 +60,7 @@ export default function OrderSummary(props: Props) {
             </div>
             <div className="flex flex-row justify-between mb-1">
                 <a className="text-lime-900"> Shipping </a>
-                <a className="text-lime-900">  { shipping > 0 ? '$' + shipping.toFixed(2) : 'TBD'} </a>
+                <a className="text-lime-900">  { shippingCost > 0 ? '$' + shippingCost.toFixed(2) : 'TBD'} </a>
             </div>
             <div className="flex flex-row justify-between">
                 <a className="text-lime-900 mb-4"> Tax </a>

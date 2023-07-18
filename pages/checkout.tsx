@@ -36,7 +36,8 @@ export default function Checkout() {
 
     const [ subtotal, setSubtotal ] = useState(0)
     const [ total, setTotal ] = useState(0)
-    
+    const [ shippingCost, setShippingCost ] = useState(0)
+    const [ tax, setTax ] = useState(0)
     const {
         getItemQuantity,
         increaseCartQuantity,
@@ -135,7 +136,7 @@ export default function Checkout() {
                                     <ReviewTable bookData={bookData} getItemQuantity={getItemQuantity} increaseCartQuantity={increaseCartQuantity} decreaseCartQuantity={decreaseCartQuantity} />
 
                                     <div className="flex flex-col">
-                                        <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} setSubtotal={setSubtotal} setTotal={setTotal} />
+                                    <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
                                         <div className="flex justify-center">
                                             <label htmlFor="checkoutbutton" className="w-32 mt-5 text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                                 Next Step
@@ -153,7 +154,7 @@ export default function Checkout() {
                             <div className="flex flex-row">
                                 <ShippingDetails shippingInfo={shippingInfo} setShipping={setShipping} />
                                 <div className="flex flex-col">
-                                <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} setSubtotal={setSubtotal} setTotal={setTotal} />
+                                <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
                                     <div className="flex justify-center mt-5 gap-1">
                                         <label htmlFor="returntoreview" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                             Go Back
@@ -179,7 +180,7 @@ export default function Checkout() {
                             <div className="flex items-start flex-row">
                                 <BankDetails />
                                 <div className="flex flex-col">
-                                    <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} setSubtotal={setSubtotal} setTotal={setTotal} />
+                                <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
                                     <div className="flex justify-center mt-5 gap-1">
                                         <label htmlFor="returntoreview" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                             Go Back
