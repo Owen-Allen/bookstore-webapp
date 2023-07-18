@@ -27,11 +27,8 @@ export function CartProvider({ children }: Props) {
       // initial load, try and get from localstorage
       if (typeof window !== 'undefined' && window.localStorage) {
         let localCart = localStorage.getItem("cart")
-        console.log(localCart)
         if (localCart && localCart !== undefined){ // cart exists
           let cartData = JSON.parse(localCart)
-          console.log(cartData)
-          console.log("WE FOUND THE CART DATA")
           setCartItems(cartData)
         }
       }
