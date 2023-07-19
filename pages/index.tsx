@@ -10,9 +10,7 @@ export default function Home() {
 
   return (
     <main
-    //bg-gradient-to-r from-indigo-100 from-0% via-white via-50% to-indigo-100 to-100%
-      className={`flex bg-orange-300
-       min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+      className={`flex flex-col bg-yellow-50 min-h-screen  items-center justify-between p-24 ${inter.className}`}
     >
       <div className="flex flex-col z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
         <div>
