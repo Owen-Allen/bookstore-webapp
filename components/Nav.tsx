@@ -52,7 +52,7 @@ const Nav = () => {
           <ul className="mr-auto flex flex-col lg:flex-row" data-te-navbar-nav-ref>
             <li className="mb-4 lg:mb-0 lg:pr-2">
               <Link
-                className={"block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 [&.active]:text-black/90 "}
+                className={"block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 "}
                 href="/"
               >
                 Home
@@ -60,7 +60,7 @@ const Nav = () => {
             </li>
             <li className="mb-4 lg:mb-0 lg:pr-2">
               <Link
-                className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 [&.active]:text-black/90"
+                className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2"
                 href="/browse"
               >
                 Browse
@@ -68,7 +68,7 @@ const Nav = () => {
             </li>
             <li className="mb-4 lg:mb-0 lg:pr-2">
               <Link
-                className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 [&.active]:text-black/90"
+                className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2"
                 href="/about"
               >
                 About
@@ -76,7 +76,7 @@ const Nav = () => {
             </li>
           </ul>
           <div className="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
-            <Link href="/checkout" role="button" className="relative flex">
+            <Link href="checkout" role="button" className="relative flex">
               <svg className="peer fill-lime-900 hover:fill-black transition duration-250 ease-in-out" fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 width="40px" height="40px" viewBox="0 0 902.86 902.86"
               >
@@ -106,5 +106,6 @@ const Nav = () => {
     </nav>
   );
 }
+
 
 export default Nav;

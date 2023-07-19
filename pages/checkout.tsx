@@ -45,17 +45,6 @@ export default function Checkout() {
         cartItems,
     } = useCartContext()
 
-    const loadBookData = async () => {
-        console.log('fetching table data')
-        const requests: Promise<any>[] = [];
-        cartItems.forEach((item) => {
-            requests.push(getBook(item.id))
-        })
-        Promise.all(requests).then((bookData) => {
-            setBookData(bookData)
-        }
-        )
-    }
 
     const getBook: any = async (isbn: number) => {
         return new Promise((resolve, reject) => {
@@ -114,8 +103,19 @@ export default function Checkout() {
     }, [cartItems])
 
     useEffect(() => {
+        const loadBookData = async () => {
+            console.log('fetching table data')
+            const requests: Promise<any>[] = [];
+            cartItems.forEach((item) => {
+                requests.push(getBook(item.id))
+            })
+            Promise.all(requests).then((bookData) => {
+                setBookData(bookData)
+            }
+            )
+        }
         loadBookData() // Should only call loadBookData once cartItems have been fetched
-    }, [isLoading, loadBookData])
+    }, [isLoading])
 
     console.log(shippingInfo)
 

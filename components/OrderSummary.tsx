@@ -26,31 +26,29 @@ const SHIPPINGLOOKUP = new Map([['Canada', 5], ['United States', 10], ['Mexico',
 export default function OrderSummary(props: Props) {
     const { items, bookData, country, subtotal, total, shippingCost, tax, setSubtotal, setTotal, setShippingCost, setTax } = props
 
-
-    const computeTotals = () => {
-        let s = bookData.reduce( (acc,book) => {
-            let newAmount = 0
-            let index = items.findIndex(item => String(item.id) === book.isbn)
-            console.log('index')
-            console.log(index)
-            if(index !== -1){
-                //Its possible that the user removed all this item 
-                let quantity = items[index].quantity
-                newAmount = (Number(quantity) * (book.price))
-            }
-            return acc + newAmount
-        }, 0)
-        setSubtotal(s)
-        let sCost = SHIPPINGLOOKUP.get(country) || -1
-        setShippingCost(sCost)
-        let t = parseFloat((s * TAXRATE).toFixed(2))
-        setTax(t)
-        setTotal(s + shippingCost + t)
-    }
-
     useEffect( () => {
+        const computeTotals = () => {
+            let s = bookData.reduce( (acc,book) => {
+                let newAmount = 0
+                let index = items.findIndex(item => String(item.id) === book.isbn)
+                console.log('index')
+                console.log(index)
+                if(index !== -1){
+                    //Its possible that the user removed all this item 
+                    let quantity = items[index].quantity
+                    newAmount = (Number(quantity) * (book.price))
+                }
+                return acc + newAmount
+            }, 0)
+            setSubtotal(s)
+            let sCost = SHIPPINGLOOKUP.get(country) || -1
+            setShippingCost(sCost)
+            let t = parseFloat((s * TAXRATE).toFixed(2))
+            setTax(t)
+            setTotal(s + shippingCost + t)
+        }
         computeTotals()
-    }, [items, bookData, country, computeTotals])
+    }, [items, bookData, country])
 
     return (
         <div className="flex flex-col bg-gray-50 rounded w-64 mt-5 p-5 mx-5 border border-lime-900">

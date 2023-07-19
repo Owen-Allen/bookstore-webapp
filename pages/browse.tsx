@@ -44,27 +44,29 @@ export default function Browse() {
     getAllGenres()
   }, [])
 
-  function filterParameters() {
-    let books = allBooks
-    if (searchFilter) {
-      books = books.filter(
-        book => book.title.toLowerCase().includes(searchFilter.toLowerCase()) || book.author.toLowerCase().includes(searchFilter.toLowerCase()))
-    }
-    if (genreFilter !== "All") {
-      books = books.filter(book => book.genre == genreFilter)
-    }
-    if (minPrice) {
-      books = books.filter(book => book.price >= minPrice)
-    }
-    if (maxPrice) {
-      books = books.filter(book => book.price <= maxPrice)
-    }
-    setDisplayBooks(books)
-  }
 
+  // wait should this be useCallback
   useEffect(() => {
-    filterParameters()
-  }, [minPrice, maxPrice, searchFilter, genreFilter, allBooks, filterParameters])
+    const filterParameters =  () => {
+      console.log("filtering...")
+      let books = allBooks
+      if (searchFilter) {
+        books = books.filter(
+          book => book.title.toLowerCase().includes(searchFilter.toLowerCase()) || book.author.toLowerCase().includes(searchFilter.toLowerCase()))
+      }
+      if (genreFilter !== "All") {
+        books = books.filter(book => book.genre == genreFilter)
+      }
+      if (minPrice) {
+        books = books.filter(book => book.price >= minPrice)
+      }
+      if (maxPrice) {
+        books = books.filter(book => book.price <= maxPrice)
+      }
+      setDisplayBooks(books)
+    }
+    filterParameters() // solution to react-hooks/exhaustive-deps https://stackoverflow.com/questions/55840294/how-to-fix-missing-dependency-warning-when-using-useeffect-react-hook
+  }, [minPrice, maxPrice, searchFilter, genreFilter, allBooks]) 
 
   return (
     <div className="min-h-screen h-screen overflow-auto bg-yellow-50">
