@@ -66,14 +66,14 @@ const Nav = () => {
                 Browse
               </Link>
             </li>
-            <li className="mb-4 lg:mb-0 lg:pr-2">
+            {/* <li className="mb-4 lg:mb-0 lg:pr-2">
               <Link
                 className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2"
                 href="/about"
               >
                 About
               </Link>
-            </li>
+            </li> */}
           </ul>
           <div className="font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700">
             <Link href="checkout" role="button" className="relative flex">

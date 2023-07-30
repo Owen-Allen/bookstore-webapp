@@ -28,7 +28,7 @@ export default function OrderSummary(props: Props) {
 
     useEffect( () => {
         const computeTotals = () => {
-            let s = bookData.reduce( (acc,book) => {
+            let newSubtotal = bookData.reduce( (acc,book) => {
                 let newAmount = 0
                 let index = items.findIndex(item => String(item.id) === book.isbn)
                 console.log('index')
@@ -40,14 +40,16 @@ export default function OrderSummary(props: Props) {
                 }
                 return acc + newAmount
             }, 0)
-            setSubtotal(s)
-            let sCost = SHIPPINGLOOKUP.get(country) || -1
-            setShippingCost(sCost)
-            let t = parseFloat((s * TAXRATE).toFixed(2))
-            setTax(t)
-            setTotal(s + shippingCost + t)
+            setSubtotal(newSubtotal)
+            let newShippingCost = SHIPPINGLOOKUP.get(country) || -1
+            setShippingCost(newShippingCost)
+            let newTax = parseFloat((newSubtotal * TAXRATE).toFixed(2))
+            setTax(newTax)
+            setTotal(newSubtotal + newShippingCost + newTax)
         }
         computeTotals()
+
+        console.log("RECOMPUTE TOTAL")
     }, [items, bookData, country])
 
     return (

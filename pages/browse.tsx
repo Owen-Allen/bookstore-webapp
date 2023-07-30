@@ -69,7 +69,7 @@ export default function Browse() {
   }, [minPrice, maxPrice, searchFilter, genreFilter, allBooks]) 
 
   return (
-    <div className="min-h-screen h-screen overflow-auto bg-yellow-50">
+    <div className="min-h-screen h-fit overflow-auto bg-yellow-50">
       <main
         //bg-gradient-to-r from-indigo-100 from-0% via-white via-50% to-indigo-100 to-100%
         className={`flex flex-col p-16 bg-yellow-50 ${inter.className}`}>
@@ -118,13 +118,13 @@ export default function Browse() {
             </aside>
 
             {/* BOOK ROWS */}
-            <div id="content" className="w-full h-screen ">
+            <div id="content" className="w-full"> {/* h-screen allows footer to have sticky behaviour up the page */}
               <div className="flex justify-center">  {/* Align center */}
                 <div className="flex w-full flex-col">  {/* Align vertically */}
                   <div className="flex w-full justify-center pr-0 sm:pr-4 sm:justify-end sm:pl-8">
                     <SortSelector onSelectChange={setSortBy} />
                   </div>
-                  <div className="bg-yellow-50 flex flex-wrap"> {/* removed justify-around*/}
+                  <div className="bg-yellow-50 flex flex-wrap pb-12 h-max"> {/* removed justify-around*/}
                     {/* Book Icons */}
                     {!displayBooks.length ?
                       "" :
@@ -154,7 +154,10 @@ export default function Browse() {
                 </div>
               </div>
             </div>
+          </div>
 
+          <div className="flex justify-center text-black">
+                    {/* previous and next page behaviour here */}
           </div>
       </main>
     </div>

@@ -18,11 +18,29 @@ export default function Card(props: Props) {
         // removeFromCart,
     } = useCartContext()
 
+    const shortenTitle = (title: String) => {
+        // reduce the title to be max 25 characters, and don't cut a word in half
+        let title_words = title.split(' ')
+        let length = 0
+        let shortTitle = title_words[0]
+        for(var i = 1; i < title_words.length; i++){
+            length += title_words[i].length
+            if (length > 25) break
+            shortTitle += " " + title_words[i]
+        }
+        return shortTitle
+    }
+
     const quantity = getItemQuantity(+props.book.isbn)
 
+
     const img_src = "https://pictures.abebooks.com/isbn/" + String(props.book.isbn) + "-us-300.jpg"
+    console.log(props.book.title)
+    console.log(img_src)
+
     return (
         <div className="flex flex-col w-96 sm:w-48 p-4 mx-8 mt-8 bg-orange-200 shadow-lg rounded">
+
             <Link href={`/book/${props.book.isbn}`}>
                 <Image
                     width={0}
@@ -31,9 +49,15 @@ export default function Card(props: Props) {
                     style={{ width: '100%', height: 'auto' }}
                     src={img_src} alt={"Image of " + props.book.title} />
             </Link>
-            <a className="p-4 sm:pt-4 sm:pl-2" href={`/book/${props.book.isbn}`}>
-                <span className="font-bold text-lime-900"> {props.book.title} </span>
-                <span className="mb-3 block text-gray-500"> {props.book.author} </span>
+            <a className="p-4 sm:pt-2 sm:pl-2" href={`/book/${props.book.isbn}`}>
+                <span className=" pb-2 w-full font-bold text-lime-900 text-center">{"$" + props.book.price + ".00"}</span>
+                <div className="h-20">
+                    <span className="font-bold text-lime-900"> 
+                        {props.book.title.length > 25 ? shortenTitle(props.book.title) + " ..." : props.book.title}
+                    </span>
+                    <span className="mb-3 block text-gray-500"> {props.book.author} </span>
+                </div>
+
             </a>
             {
                 quantity === 0 ?
