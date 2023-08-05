@@ -22,7 +22,7 @@ export default function Card(props: Props) {
     const img_src = "https://pictures.abebooks.com/isbn/" + String(props.book.isbn) + "-us-300.jpg"
 
     return (
-        <div className={`flex flex-col w-96 sm:w-48 p-4 mx-8 mt-8 bg-orange-200 shadow-lg rounded`}>
+        <div className={`flex flex-col w-96 sm:w-48 p-4 mt-8 bg-orange-200 shadow-lg rounded`}>
 
             <Link href={`/book/${props.book.isbn}`}>
                 <Image
@@ -33,9 +33,9 @@ export default function Card(props: Props) {
                     src={img_src} alt={"Image of " + props.book.title} />
             </Link>
             <Link className="flex flex-col p-4 sm:pt-2 sm:pl-2" href={`/book/${props.book.isbn}`}>
-                <span className="font-semibold text-lime-900">{"$" + props.book.price + ".00"}</span>
+                <span className="font-semibold text-black">{"$" + props.book.price + ".00"}</span>
                 <div className="h-20">
-                    <span className="font-semibold text-lime-900 line-clamp-2"> 
+                    <span className="font-semibold text-black line-clamp-2"> 
                         {props.book.title}
                     </span>
                     <span className="mb-3 block text-gray-500"> {props.book.author} </span>

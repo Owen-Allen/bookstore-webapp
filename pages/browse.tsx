@@ -98,7 +98,7 @@ export default function Browse() {
       <main
         className={`flex flex-col p-16 bg-yellow-50`}>
         <div className="flex justify-center sm:flex-none sm:justify-start">
-          <h1 id="browse" className="text-lime-900 text-6xl p-8 font-mono -mt-8 mb-2">
+          <h1 id="browse" className={`${roboto.className} text-black text-6xl p-8 -mt-8 mb-2`}>
             Browse
           </h1>
         </div>
@@ -109,7 +109,7 @@ export default function Browse() {
               <form className="w-full max-w-lg">
                 <div className="flex flex-wrap -mx-3 mb-6">
                   <div className="w-full px-3">
-                    <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="booksearch">
+                    <label className="block text-black text-md font-bold mb-2" htmlFor="booksearch">
                       Find a Book
                     </label>
                     <input onChange={e => setSearchFilter(e.target.value)} className="text-lime-800 appearance-none bg-yellow-50 block w-full lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="bookquery" type="booksearch" />
@@ -117,21 +117,21 @@ export default function Browse() {
                 </div>
                 <div className="flex flex-wrap -mx-3 mb-6">
                   <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="minprice">
+                    <label className="block text-black text-md font-bold mb-2" htmlFor="minprice">
                       Min Price
                     </label>
-                    <input onChange={e => setMinPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="minprice" />
+                    <input onChange={e => setMinPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-black border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="minprice" />
                   </div>
                   <div className="w-full md:w-1/2 px-3">
-                    <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="maxprice">
+                    <label className="block text-black text-md font-bold mb-2" htmlFor="maxprice">
                       Max Price
                     </label>
-                    <input onChange={(e) => setMaxPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="maxprice" />
+                    <input onChange={(e) => setMaxPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-black border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="maxprice" />
                   </div>
                 </div>
 
-                <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="genre"> Select a genre </label>
-                <select onChange={e => { setGenresFilter(e.target.value) }} id="genre" className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none">
+                <label className="block text-black text-md font-bold mb-2" htmlFor="genre"> Select a genre </label>
+                <select onChange={e => { setGenresFilter(e.target.value) }} id="genre" className="appearance-none bg-yellow-50 block w-full text-black border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none">
                   <option key="All" value="All">All</option>
                   {
                     allGenres.map((genre) => <option key={genre} value={genre}>{genre}</option>)
@@ -144,11 +144,11 @@ export default function Browse() {
           {/* BOOK ROWS */}
           <div id="content" className="w-full"> {/* h-screen allows footer to have sticky behaviour up the page */}
             <div className="flex justify-center">  {/* Align center */}
-              <div className="flex w-full flex-col">  {/* Align vertically */}
-                <div className="flex w-full justify-center pr-0 sm:pr-4 sm:justify-end sm:pl-8">
+              <div className="flex w-full flex-col px-12">  {/* Align vertically */}
+                <div className="flex w-full justify-center sm:justify-end">
                   <SortSelector onSelectChange={setSortBy} />
                 </div>
-                <div className="bg-yellow-50 flex flex-wrap pb-12 h-max"> {/* removed justify-around*/}
+                <div className="bg-yellow-50 flex flex-wrap pb-12 h-max justify-between gap-4"> {/* removed justify-around*/}
                   {/* Book Icons */}
                   {!displayBooks.length ?
                     "" :
@@ -180,7 +180,7 @@ export default function Browse() {
           </div>
         </div>
 
-        <div className={`flex flex-row justify-center text-gray-800 gap-4`}>
+        <div className={`flex flex-row justify-center text-gray-800 gap-12`}>
           {page > 1 &&
             <button className="hover:text-black"
               onClick={() => {
