@@ -1,8 +1,18 @@
 import React, { useEffect, useState } from 'react'
-
+import { useRouter } from 'next/router'
 
 import Card from '@/components/Card'
 import SortSelector from '@/components/SortSelector'
+
+import { Roboto_Mono } from 'next/font/google'
+
+const roboto = Roboto_Mono({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+const MAX_RESULTS_PER_PAGE = 28
 
 export interface Book {
   title: string,
@@ -15,6 +25,7 @@ export interface Book {
 }
 
 export default function Browse() {
+  const router = useRouter()
   const [allBooks, setAllBooks] = useState<Book[]>([])
   const [displayBooks, setDisplayBooks] = useState<Book[]>([])
   const [allGenres, setAllGenres] = useState(["All"])
@@ -87,7 +98,7 @@ export default function Browse() {
       <main
         className={`flex flex-col p-16 bg-yellow-50`}>
         <div className="flex justify-center sm:flex-none sm:justify-start">
-          <h1 className="text-lime-900 text-6xl p-8 font-mono -mt-8 mb-2">
+          <h1 id="browse" className="text-lime-900 text-6xl p-8 font-mono -mt-8 mb-2">
             Browse
           </h1>
         </div>
@@ -161,7 +172,7 @@ export default function Browse() {
                       }
                       return 1
                     }
-                    ).slice((page - 1) * 28, page * 28).map((book) =>
+                    ).slice((page - 1) * MAX_RESULTS_PER_PAGE, page * MAX_RESULTS_PER_PAGE).map((book) =>
                       <Card key={`card_${book.isbn}`} book={book}></Card>)}
                 </div>
               </div>
@@ -169,8 +180,28 @@ export default function Browse() {
           </div>
         </div>
 
-        <div className="flex justify-center text-black">
-          {/* previous and next page behaviour here */}
+        <div className={`flex flex-row justify-center text-gray-800 gap-4`}>
+          {page > 1 &&
+            <button className="hover:text-black"
+              onClick={() => {
+                setPage(page - 1);
+                router.push('#browse')
+              }}>
+              previous page
+            </button>}
+          {allBooks.length - (page * MAX_RESULTS_PER_PAGE) > 0 &&
+            <button className="hover:text-black"
+              onClick={() => {
+                setPage(page + 1);
+                router.push('#browse')
+              }}>
+              next page
+            </button>}
+          {/* cannot hit next page if there are no more results to show, 
+            ex: suppose the search provides 31 results, 28 are on the page, thus 31 - (1 * 28) = 3 > 0, so we have more results to show
+            62 - (28 * 2) = 6 > 0 (more results to show)
+            29 - (28 * 2) = -27 < (no more results to show, so no next page button)
+            */}
         </div>
       </main>
     </div>
