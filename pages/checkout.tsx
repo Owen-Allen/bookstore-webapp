@@ -16,35 +16,54 @@ export interface Shipping {
     country: string
 }
 
+export interface ShippingValidator {
+    email: boolean,
+    fname: boolean,
+    lname: boolean,
+    address: boolean,
+    city: boolean,
+    postalcode: boolean,
+    country: boolean
+}
+
 interface Card {
     cardNumber: string;
     cardExpiryDate: string;
     CVV: string
 }
 
-export default function Checkout() {
+import { Roboto_Mono } from 'next/font/google'
 
+const roboto = Roboto_Mono({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+
+export default function Checkout() {
     // 4 stages, review, shipping details, card details and order complete
     const [stage, setStage] = useState("review")
     const [bookData, setBookData] = useState<Book[]>([])
     const [isLoading, setIsLoading] = useState(true)
 
     const [shippingInfo, setShipping] = useState<Shipping>({ email: '', fname: '', lname: '', address: '', city: '', postalcode: '', country: '' })
+    const [shippingValidator, setShippingValidator] = useState<ShippingValidator>({ email: true, fname: true, lname: true, address: true, city: true, postalcode: true, country: true })
+
     const [cardInfo, setCard] = useState<Card>({ cardNumber: '', cardExpiryDate: '', CVV: '' })
 
-    const [errors, setErrors] = useState<string[]>([])
+    const [subtotal, setSubtotal] = useState(0)
+    const [total, setTotal] = useState(0)
+    const [shippingCost, setShippingCost] = useState(0)
+    const [tax, setTax] = useState(0)
 
-    const [ subtotal, setSubtotal ] = useState(0)
-    const [ total, setTotal ] = useState(0)
-    const [ shippingCost, setShippingCost ] = useState(0)
-    const [ tax, setTax ] = useState(0)
     const {
         getItemQuantity,
         increaseCartQuantity,
         decreaseCartQuantity,
         cartItems,
+        removeFromCart,
     } = useCartContext()
-
 
     const getBook: any = async (isbn: number) => {
         return new Promise((resolve, reject) => {
@@ -54,47 +73,41 @@ export default function Checkout() {
         })
     }
 
+    const checkShippingValidator = (validator: ShippingValidator) => {
+        if (validator.email && validator.fname && validator.lname && validator.address && validator.city && validator.postalcode && validator.country) {
+            return true
+        }
+        return false
+    }
+
     const nextStage = (newStage: string) => {
         if (newStage === "banking") {
-            // need to make sure shippingInfo is valid before we can setStage
-            let shippingValid = true
-            let newErrors = []
-            if (!shippingInfo.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-                shippingValid = false
-                newErrors.push("Invalid email address.")
-            }
-            if (!shippingInfo.fname) {
-                shippingValid = false
-                newErrors.push("Missing first name.")
-            }
-            if (!shippingInfo.lname) {
-                shippingValid = false
-                newErrors.push("Missing last name.")
-            }
-            if (!shippingInfo.city) {
-                shippingValid = false
-                newErrors.push("Missing city.")
-            }
-            if (!shippingInfo.postalcode) {
-                shippingValid = false
-                newErrors.push("Missing postal code.")
-            }
-            if (!shippingInfo.country) {
-                shippingValid = false
-                newErrors.push("Missing country.")
-            }
-
-            if (shippingValid) {
+            let newValidator: ShippingValidator = { email: true, fname: true, lname: true, address: true, city: true, postalcode: true, country: true }
+            newValidator.email = !!shippingInfo.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)
+            newValidator.fname = !!shippingInfo.fname // only requirement is that the name is not null
+            newValidator.lname = !!shippingInfo.lname
+            newValidator.address = !!shippingInfo.address
+            newValidator.city = !!shippingInfo.city
+            newValidator.postalcode = !!shippingInfo.postalcode // TODO: add robust postalcode
+            newValidator.country = !!shippingInfo.country
+            setShippingValidator(newValidator)
+            if (checkShippingValidator(newValidator)) {
                 setStage(newStage)
-                setErrors([])
-            } else {
-                setErrors(newErrors)
             }
+        }
+        if (newStage === "complete"){
+
+            // Make POST request to backend, adding the user order
+            // then clear cart
+            cartItems.map(item => {
+                removeFromCart(item.id)
+            })
+            setStage('complete')
         }
     }
 
     const goBack = (newStage: string) => {
-        setErrors([])
+        setShippingValidator({ email: true, fname: true, lname: true, address: true, city: true, postalcode: true, country: true })
         setStage(newStage)
     }
 
@@ -124,9 +137,9 @@ export default function Checkout() {
             <main
                 className={`flex justify-center bg-yellow-50 pt-16 sm:p-16`}>
                 <div className="w-full sm:w-11/12"> {/**/}
-                    <div className="text-lime-900 text-6xl p-8 font-mono mb-6 -mt-8 ">  {/* bg-white sm:bg-yellow-500 md:bg-blue-500 lg:bg-red-500 */}
+                    {stage !== 'complete' && <div className="text-lime-900 text-6xl p-8 font-mono mb-6 -mt-8 ">
                         Checkout
-                    </div>
+                    </div>}
                     {/* show little progress bar */}
                     {stage == "review" &&
                         <div className="min-w-max p-4 bg-orange-200 rounded-3xl">
@@ -136,7 +149,7 @@ export default function Checkout() {
                                     <ReviewTable bookData={bookData} getItemQuantity={getItemQuantity} increaseCartQuantity={increaseCartQuantity} decreaseCartQuantity={decreaseCartQuantity} />
 
                                     <div className="flex flex-col">
-                                    <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
+                                        <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
                                         <div className="flex justify-center">
                                             <label htmlFor="checkoutbutton" className="w-32 mt-5 text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                                 Next Step
@@ -152,9 +165,9 @@ export default function Checkout() {
                         <div className="min-w-max p-4 bg-orange-200 rounded-3xl">
                             <h1 className="text-xl mb-2 ml-5 text-lime-900 mt-4">Add Shipping Details</h1>
                             <div className="flex flex-row">
-                                <ShippingDetails shippingInfo={shippingInfo} setShipping={setShipping} />
+                                <ShippingDetails shippingInfo={shippingInfo} setShipping={setShipping} shippingValidator={shippingValidator} />
                                 <div className="flex flex-col">
-                                <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
+                                    <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
                                     <div className="flex justify-center mt-5 gap-1">
                                         <label htmlFor="returntoreview" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                             Go Back
@@ -164,9 +177,6 @@ export default function Checkout() {
                                             Next Step
                                         </label>
                                         <input type="button" id="completeorder" onClick={() => nextStage('banking')} />
-                                    </div>
-                                    <div className="flex flex-col w-full justify-center">
-                                            {!!errors.length && <a className="text-red-900 text-center font-bold p-6"> Missing or invalid shipping data. </a>}
                                     </div>
                                 </div>
 
@@ -180,7 +190,7 @@ export default function Checkout() {
                             <div className="flex items-start flex-row">
                                 <BankDetails />
                                 <div className="flex flex-col">
-                                <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
+                                    <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
                                     <div className="flex justify-center mt-5 gap-1">
                                         <label htmlFor="returntoreview" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                             Go Back
@@ -189,10 +199,16 @@ export default function Checkout() {
                                         <label htmlFor="completeorder" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                             Complete
                                         </label>
-                                        <input type="button" id="completeorder" onClick={() => setStage('complete')} />
+                                        <input type="button" id="completeorder" onClick={() => nextStage('complete')} />
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    }
+
+                    {stage == "complete" &&
+                        <div className={`${roboto.className} w-full text-center text-lime-900 text-6xl p-8 `}>
+                            Thank you for shopping!
                         </div>
                     }
                 </div>

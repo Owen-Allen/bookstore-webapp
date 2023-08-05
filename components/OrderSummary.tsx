@@ -41,7 +41,7 @@ export default function OrderSummary(props: Props) {
                 return acc + newAmount
             }, 0)
             setSubtotal(newSubtotal)
-            let newShippingCost = SHIPPINGLOOKUP.get(country) || -1
+            let newShippingCost = SHIPPINGLOOKUP.get(country) || 0
             setShippingCost(newShippingCost)
             let newTax = parseFloat((newSubtotal * TAXRATE).toFixed(2))
             setTax(newTax)

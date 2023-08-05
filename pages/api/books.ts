@@ -13,7 +13,7 @@ export default async function handle(
         isbn: isbn,
       }
     })
-    console.log(book)
+    // console.log(book)
     res.status(200).json(book)
   } else {
     const books = await prisma.book.findMany()

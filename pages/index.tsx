@@ -1,6 +1,7 @@
-import { Roboto_Mono } from 'next/font/google'
 
 import Link from 'next/link'
+
+import { Roboto_Mono } from 'next/font/google'
 
 const roboto = Roboto_Mono({
   weight: '400',
@@ -10,7 +11,6 @@ const roboto = Roboto_Mono({
 
 export default function Home() {
 
-  console.log(roboto.className)
   return (
     <main className={`flex flex-col bg-yellow-50 h-full p-24 ${roboto.className}`}>
       <div className="flex flex-row text-black">
