@@ -11,7 +11,7 @@ const roboto = Roboto_Mono({
 
 export default function Home() {
   return (
-    <main className={`flex flex-col bg-yellow-50 h-full p-24 ${roboto.className}`}>
+    <main className={`flex flex-col bg-yellow-50 h-screen py-24 sm:p-24 overflow-auto ${roboto.className}`}>
       <div className="flex flex-row text-black">
         <div className="basis-2/5 p-12">
           <h1 className={`text-black text-6xl`}>Welcome!</h1>
