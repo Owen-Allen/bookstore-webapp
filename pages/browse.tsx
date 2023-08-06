@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-import Card from '@/components/Card'
+import { Card } from '@/components/Card'
 import SortSelector from '@/components/SortSelector'
 
 import { Roboto_Mono } from 'next/font/google'
@@ -96,9 +96,9 @@ export default function Browse() {
   return (
     <div className="min-h-screen h-fit overflow-auto bg-yellow-50">
       <main
-        className={`flex flex-col p-16 bg-yellow-50`}>
+        className={`flex flex-col sm:p-16 pt-16 pb-8 bg-yellow-50`}>
         <div className="flex justify-center sm:flex-none sm:justify-start">
-          <h1 id="browse" className={`${roboto.className} text-black text-6xl p-8 -mt-8 mb-2`}>
+          <h1 id="browse" className={`${roboto.className} text-lime-900 text-6xl p-8 -mt-8 mb-2`}>
             Browse
           </h1>
         </div>
@@ -109,7 +109,7 @@ export default function Browse() {
               <form className="w-full max-w-lg">
                 <div className="flex flex-wrap -mx-3 mb-6">
                   <div className="w-full px-3">
-                    <label className="block text-black text-md font-bold mb-2" htmlFor="booksearch">
+                    <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="booksearch">
                       Find a Book
                     </label>
                     <input onChange={e => setSearchFilter(e.target.value)} className="text-lime-800 appearance-none bg-yellow-50 block w-full lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="bookquery" type="booksearch" />
@@ -117,21 +117,21 @@ export default function Browse() {
                 </div>
                 <div className="flex flex-wrap -mx-3 mb-6">
                   <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label className="block text-black text-md font-bold mb-2" htmlFor="minprice">
+                    <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="minprice">
                       Min Price
                     </label>
-                    <input onChange={e => setMinPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-black border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="minprice" />
+                    <input onChange={e => setMinPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="minprice" />
                   </div>
                   <div className="w-full md:w-1/2 px-3">
-                    <label className="block text-black text-md font-bold mb-2" htmlFor="maxprice">
+                    <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="maxprice">
                       Max Price
                     </label>
-                    <input onChange={(e) => setMaxPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-black border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="maxprice" />
+                    <input onChange={(e) => setMaxPrice(+e.target.value)} className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none" id="maxprice" />
                   </div>
                 </div>
 
-                <label className="block text-black text-md font-bold mb-2" htmlFor="genre"> Select a genre </label>
-                <select onChange={e => { setGenresFilter(e.target.value) }} id="genre" className="appearance-none bg-yellow-50 block w-full text-black border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none">
+                <label className="block text-lime-900 text-md font-bold mb-2" htmlFor="genre"> Select a genre </label>
+                <select onChange={e => { setGenresFilter(e.target.value) }} id="genre" className="appearance-none bg-yellow-50 block w-full text-lime-900 border border-gray-700 rounded py-3 px-4 leading-tight focus:outline-none">
                   <option key="All" value="All">All</option>
                   {
                     allGenres.map((genre) => <option key={genre} value={genre}>{genre}</option>)
@@ -181,7 +181,7 @@ export default function Browse() {
 
         <div className={`flex flex-row justify-center text-gray-800 gap-12`}>
           {page > 1 &&
-            <button className="hover:text-black"
+            <button className="text-lime-900 hover:text-black"
               onClick={() => {
                 setPage(page - 1);
                 router.push('#browse')
@@ -189,7 +189,7 @@ export default function Browse() {
               previous page
             </button>}
           {displayBooks.length - (page * MAX_RESULTS_PER_PAGE) > 0 &&
-            <button className="hover:text-black"
+            <button className="text-lime-900 hover:text-black"
               onClick={() => {
                 setPage(page + 1);
                 router.push('#browse')
@@ -206,5 +206,4 @@ export default function Browse() {
     </div>
   );
 }
-
 
