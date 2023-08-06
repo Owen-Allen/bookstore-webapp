@@ -10,11 +10,10 @@ const Nav = () => {
 
   return (
     <nav
-      className="relative flex w-full items-center justify-between bg-orange-300 shadow-md py-2 md:flex-wrap md:justify-start"
+      className="relative flex w-full items-center bg-orange-300 shadow-md py-2 flex-wrap justify-start"
     >
-      <div className="flex w-full flex-wrap items-center justify-between ">
-        <div className="flex items-center">
-          {/*  Hamburger menu button */}
+      <div className="flex w-full items-center justify-between ">
+        {/*<div className="flex items-center">
           <button
             className="border-0 text-black bg-transparent py-2 px-4 text-xl leading-none transition-shadow duration-150 ease-in-out hover:text-neutral-700 focus:text-neutral-700 dark:hover:text-white dark:focus:text-white lg:hidden"
             type="button"
@@ -24,7 +23,6 @@ const Nav = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            {/* Hamburger menu icon */}
             <span className="[&>svg]:w-5">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -42,25 +40,25 @@ const Nav = () => {
               </svg>
             </span>
           </button>
-        </div>
+        </div>*/}
 
         {/* Navigation links */}
         <div
-          className="!visible mx-16 hidden grow basis-[100%] items-center lg:!flex lg:basis-auto"
+          className="mx-4 sm:mx-16 grow items-center flex basis-auto"
           id="navbarSupportedContentY"
         >
-          <ul className="mr-auto flex flex-col lg:flex-row" data-te-navbar-nav-ref>
-            <li className="mb-4 lg:mb-0 lg:pr-2">
+          <ul className="mr-auto flex flex-row" data-te-navbar-nav-ref>
+            <li className="pr-2">
               <Link
-                className={"block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2 "}
+                className={"block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 p-2 "}
                 href="/"
               >
                 Home
               </Link>
             </li>
-            <li className="mb-4 lg:mb-0 lg:pr-2">
+            <li className="pr-2">
               <Link
-                className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 lg:p-2"
+                className="block font-semibold hover:text-black text-lime-900 transition duration-250 ease-in-out disabled:text-black/30 p-2"
                 href="/browse"
               >
                 Browse
@@ -76,7 +74,7 @@ const Nav = () => {
             </li> */}
           </ul>
 
-          <div className={cartQuantity ? "font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700" : "pointer-events-none font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700"}>
+          <div className={cartQuantity ? "font-sans inline-block align-middle text-black hover:text-gray-700" : "pointer-events-none font-sans block lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700"}>
             <Link href="/checkout" role="button" className="relative flex">
               <svg className="peer fill-lime-900 hover:fill-black transition duration-250 ease-in-out" fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 width="40px" height="40px" viewBox="0 0 902.86 902.86"
