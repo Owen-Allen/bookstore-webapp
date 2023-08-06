@@ -36,7 +36,7 @@ export default function Book({ isbn } : Props) {
     const fetchBook = async () => {
     const response = await fetch(`/api/books?isbn=${isbn}`)
     console.log
-    if(response.ok){ //FIX THIS (need to check if newBook is a book)
+    if(response.ok){
       console.log("response.ok")
       const newBook = await response.json()
       if(newBook){ 
