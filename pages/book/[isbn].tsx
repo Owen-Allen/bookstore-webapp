@@ -54,7 +54,8 @@ export default function Book({ isbn } : Props) {
   return (
     <div className="min-h-screen h-fit overflow-auto bg-yellow-50 text-black px-64 py-16">
 
-      {book !== undefined ? <div className="flex flex-row text-black">
+      {book !== undefined ? 
+      <div className="flex flex-row text-black">
         <div className="basis-1/2 pr-16">
           <Image
             width={0}
@@ -90,7 +91,9 @@ export default function Book({ isbn } : Props) {
           }
         </div>
       </div>:
-        <div className="text-black text-2xl pt-64"> Loading ...</div>
+        <div className="flex">
+        <div className="text-black text-2xl mt-64 m-auto"> Loading ...</div>
+        </div>
       }
     </div>
   )
