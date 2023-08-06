@@ -188,7 +188,7 @@ export default function Browse() {
               }}>
               previous page
             </button>}
-          {allBooks.length - (page * MAX_RESULTS_PER_PAGE) > 0 &&
+          {displayBooks.length - (page * MAX_RESULTS_PER_PAGE) > 0 &&
             <button className="hover:text-black"
               onClick={() => {
                 setPage(page + 1);
