@@ -10,7 +10,6 @@ const roboto = Roboto_Mono({
 })
 
 export default function Home() {
-
   return (
     <main className={`flex flex-col bg-yellow-50 h-full p-24 ${roboto.className}`}>
       <div className="flex flex-row text-black">
