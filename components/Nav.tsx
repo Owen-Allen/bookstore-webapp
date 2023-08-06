@@ -77,7 +77,7 @@ const Nav = () => {
           </ul>
 
           <div className={cartQuantity ? "font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700" : "pointer-events-none font-sans block mt-4 lg:inline-block lg:mt-0 lg:ml-6 align-middle text-black hover:text-gray-700"}>
-            <Link href="checkout" role="button" className="relative flex">
+            <Link href="/checkout" role="button" className="relative flex">
               <svg className="peer fill-lime-900 hover:fill-black transition duration-250 ease-in-out" fill="#FFFFFF" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                 width="40px" height="40px" viewBox="0 0 902.86 902.86"
               >
