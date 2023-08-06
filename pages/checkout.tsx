@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useReducer } from 'react'
+import Link from 'next/link'
 import { useCartContext } from '@/context/CartContext'
 import ReviewTable from '@/components/ReviewTable'
 import BankDetails from '@/components/BankForm'
@@ -33,6 +34,7 @@ interface Card {
 }
 
 import { Roboto_Mono } from 'next/font/google'
+import { Http2ServerRequest } from 'http2'
 
 const roboto = Roboto_Mono({
   weight: '400',
@@ -130,14 +132,12 @@ export default function Checkout() {
         loadBookData() // Should only call loadBookData once cartItems have been fetched
     }, [isLoading])
 
-    console.log(shippingInfo)
-
     return (
         <div className="flex flex-col min-h-screen h-screen overflow-auto bg-yellow-50">
             <main
                 className={`flex justify-center bg-yellow-50 pt-16 sm:p-16`}>
                 <div className="w-full sm:w-11/12"> {/**/}
-                    {stage !== 'complete' && <div className="text-lime-900 text-6xl p-8 font-mono mb-6 -mt-8 ">
+                    {stage !== 'complete' && <div className={` ${roboto.className} text-lime-900 text-6xl p-8 font-mono mb-6 -mt-8 `}>
                         Checkout
                     </div>}
                     {/* show little progress bar */}
@@ -207,9 +207,14 @@ export default function Checkout() {
                     }
 
                     {stage == "complete" &&
-                        <div className={`${roboto.className} w-full text-center text-lime-900 text-6xl p-8 `}>
+                    <div>
+                        <h1 className={`${roboto.className} w-full text-center text-lime-900 text-6xl p-8 mt-32 `}>
                             Thank you for shopping!
-                        </div>
+                        </h1>
+                        <h2 className={`${roboto.className} w-full text-center text-lime-900 p-8 `}>
+                             <Link className="font-bold" href="/">click here to go home</Link>
+                        </h2>
+                    </div>
                     }
                 </div>
             </main>

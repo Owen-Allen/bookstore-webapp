@@ -22,8 +22,7 @@ export default function Card(props: Props) {
     const img_src = "https://pictures.abebooks.com/isbn/" + String(props.book.isbn) + "-us-300.jpg"
 
     return (
-        <div className={`flex flex-col w-96 sm:w-48 p-4 mt-8 bg-orange-200 shadow-lg rounded`}>
-
+        <div className={`w-96 sm:w-48 p-4 mt-8 bg-orange-200 shadow-lg rounded`}> {/* flex flex-col*/}
             <Link href={`/book/${props.book.isbn}`}>
                 <Image
                     width={0}
@@ -59,7 +58,6 @@ export default function Card(props: Props) {
                             <button onClick={() => increaseCartQuantity(+props.book.isbn)} className="font-bold rounded-full w-8 h-8 bg-orange-300 text-black"> ＋ </button>
                         </div>
                     </div>
-
             }
         </div>
     )
