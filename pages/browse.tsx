@@ -45,7 +45,6 @@ export default function Browse() {
       setAllBooks(await response.json())
     } catch (err) {
       console.log("CAUGHT ERROR")
-      alert("hello?")
       console.log(err)
       setAllBooks([])
     }
