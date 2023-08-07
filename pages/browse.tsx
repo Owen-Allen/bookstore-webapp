@@ -150,7 +150,7 @@ export default function Browse() {
                 </div>
                 <div className="flex flex-wrap justify-between bg-yellow-50 pb-12 h-max  gap-4"> {/* removed justify-around*  */}
                   {/* Book Icons */}
-                  {displayBooks.length &&
+                  {!!displayBooks.length &&
                     displayBooks.sort((book1: Book, book2: Book) => {
                       if (sortBy === "title") {
                         if (book1.title > book2.title) {
