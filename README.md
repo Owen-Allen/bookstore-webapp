@@ -1,6 +1,6 @@
 # Bookstore Web Application
 
-This project was created using TypeScript, Next.JS, Tailwind CSS and PostgreSQL/Prisma.
+This project was created using TypeScript, Next.JS, Tailwind CSS and PostgreSQL/Prisma and is live at https://bookstore-webapp.vercel.app/
 
 The project consists of a home page, a browse page where users can add books to cart, dynamic book pages using Next.js slug name, as well as a checkout page where user's can fill in their shipping and banking info.
 
