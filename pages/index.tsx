@@ -17,12 +17,12 @@ export default function Home() {
           <h1 className={`text-black text-6xl`}>Welcome!</h1>
           <div className="mt-12">
             <div id="welcome" className="text-black">
-              Welcome to my bookstore app! Go to the <Link className="font-bold hover:text-black" href="browse"> Browse page </Link> to explore the library, add books to cart, then try checking out. This app was built using Next.JS, TailwindCSS, PostgreSQL and Prisma.
+              Welcome to my bookstore app! Go to the <Link className="hover:font-bold" href="browse"> Browse page </Link> to explore the library, add books to cart, then try checking out. This app was built using Next.JS, TailwindCSS, PostgreSQL and Prisma.
             </div>
           </div>
           <div className="mt-12">
             <div id="info" className="text-gray-600">
-              For more info, check out the project on <Link className="font-bold hover:text-black" href="https://github.com/Owen-Allen/bookstore-webapp">GitHub</Link>, or feel free to message me on <Link className="font-bold hover:text-black" href="https://www.linkedin.com/in/owen-allen00/"> LinkedIn </Link> or by email at <Link href="mailto:owenallen.2000@gmail.com" className="font-bold hover:text-black">owenallen.2000@gmail.com</Link>
+              For more info, check out the project on <Link className="hover:font-bold" href="https://github.com/Owen-Allen/bookstore-webapp">GitHub</Link>, or feel free to message me on <Link className="hover:font-bold" href="https://www.linkedin.com/in/owen-allen00/"> LinkedIn </Link> or by email at <Link href="mailto:owenallen.2000@gmail.com" className="font-bold hover:text-black">owenallen.2000@gmail.com</Link>
             </div>
           </div>
         </div>

@@ -132,6 +132,7 @@ export default function Checkout() {
         loadBookData() // Should only call loadBookData once cartItems have been fetched
     }, [isLoading])
 
+    console.log(!!total)
     return (
         <div className="flex flex-col min-h-screen h-screen overflow-auto bg-yellow-50">
             <main
@@ -150,12 +151,13 @@ export default function Checkout() {
 
                                     <div className="flex flex-col">
                                         <OrderSummary items={cartItems} bookData={bookData} country={shippingInfo.country} subtotal={subtotal} total={total} shippingCost={shippingCost} tax={tax} setSubtotal={setSubtotal} setTotal={setTotal} setShippingCost={setShippingCost} setTax={setTax} />
+                                        {!!total && 
                                         <div className="flex justify-center">
                                             <label htmlFor="checkoutbutton" className="w-32 mt-5 text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                                                 Next Step
                                             </label>
                                             <input type="button" id="checkoutbutton" onClick={() => setStage('shipping')} />
-                                        </div>
+                                        </div>}
                                     </div>
                                 </div> : <div className="flex justify-center p-16 text-3xl text-lime-900">Loading ...</div>}
                         </div>}
